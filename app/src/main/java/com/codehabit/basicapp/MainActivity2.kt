@@ -2,6 +2,7 @@ package com.codehabit.basicapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -9,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.codehabit.basicapp.databinding.ActivityMain2Binding
+import kotlinx.android.synthetic.main.content_main2.view.*
 
 class MainActivity2 : AppCompatActivity() {
 
@@ -32,6 +34,14 @@ class MainActivity2 : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        binding.root.btn_play_me.setOnClickListener{startAnAnctivity()}
+    }
+
+    private fun startAnAnctivity(){
+        val intent = Intent(this, MainActivity::class.java)
+        intent.setAction(Intent.ACTION_VIEW)
+        startActivity(intent)
     }
 
     //To support Navigation
