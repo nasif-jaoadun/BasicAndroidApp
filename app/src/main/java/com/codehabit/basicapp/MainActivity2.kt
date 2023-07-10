@@ -1,6 +1,7 @@
 package com.codehabit.basicapp
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.snackbar.Snackbar
@@ -25,6 +26,7 @@ class MainActivity2 : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
+
         //This three lines are controlling the navigation between fragments
 //        val navController = findNavController(R.id.nav_host_fragment_content_main2)
 //        appBarConfiguration = AppBarConfiguration(navController.graph)
@@ -35,12 +37,17 @@ class MainActivity2 : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.root.btn_play_me.setOnClickListener{startAnAnctivity()}
+        binding.root.btn_play_me.setOnClickListener{startAnAnctivity(R.drawable.ic_monster01)}
     }
 
-    private fun startAnAnctivity(){
+    private fun startAnAnctivity(monsteerId: Int){
         val intent = Intent(this, MainActivity::class.java)
         intent.setAction(Intent.ACTION_VIEW)
+
+        //creating URI
+        val uri = Uri.parse("http://com.example.myfirstapp/view?id=$monsteerId")
+        intent.data= uri //send data by data object of intent
+        intent.putExtra("monsterId", monsteerId) //send data by intent extra
         startActivity(intent)
     }
 
