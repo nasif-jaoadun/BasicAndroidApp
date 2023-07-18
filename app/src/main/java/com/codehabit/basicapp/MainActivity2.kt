@@ -37,7 +37,7 @@ class MainActivity2 : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.root.btn_play_me.setOnClickListener{startAnAnctivity(R.drawable.ic_monster01)}
+        binding.root.btn_play_me.setOnClickListener{startAnAnctivity(R.drawable.ic_monster12)}
     }
 
     private fun startAnAnctivity(monsteerId: Int){
